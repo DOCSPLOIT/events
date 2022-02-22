@@ -1,0 +1,69 @@
+div.search {
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+div.search input[type="text"] {
+  padding: 10px;
+  font-size: 17px;
+  border-right: none;
+  border: none;
+  float: left;
+  background-color: transparent;
+  width: 90%;
+}
+
+div.search input[type="text"]:focus {
+  border-right: none;
+  outline: none;
+}
+div.search button {
+  float: left;
+  height: 30px;
+  width: 30px;
+  /* padding: 10px; */
+  text-align: center;
+  margin: auto;
+  color: white;
+  font-size: 17px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--primary);
+  cursor: pointer;
+}
+
+div.search::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.paper {
+  top: 85%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* Remove default arrow */
+  /* background-image: url(...); Add custom arrow */
+  outline: none;
+  background-color: transparent;
+  /* width: 180px; */
+  height: 45px;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-weight: "700";
+  color: #cccccc;
+}
+option {
+  color: black;
+}
