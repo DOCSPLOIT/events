@@ -67,7 +67,7 @@ select {
 option {
   color: black;
 }
-@media only screen and (max-width: 699px) {
+@media only screen and (max-width: 766px) {
   .yellow-plate {
     height: 930px !important;
   }

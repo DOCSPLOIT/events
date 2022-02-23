@@ -2,7 +2,18 @@ import React from "react";
 import { Images } from "../../assets/resources";
 import KonfhubEvents from "../events/KonfEvents";
 import "./landing.css";
+import { BiSearch } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import events, { fetchEvents } from "../../store/events";
 function Landing() {
+  const dispatch = useDispatch();
+  const defaultLimit = 12;
+  let extendedLimit = defaultLimit;
+  const onSearch = (key: string) =>
+    dispatch(fetchEvents({ search_query: key, limit: defaultLimit }));
+  const onChangePastEvents = (key: string) =>
+    dispatch(fetchEvents({ past_event: key, limit: defaultLimit }));
+
   return (
     <div className="col-md-12  mt-3">
       <div className="m-auto col-md-10">
@@ -52,9 +63,14 @@ function Landing() {
                 </label>
 
                 <div className="search ">
-                  <input type="text" name="search" id="search" />
+                  <input
+                    onChange={(e) => onSearch(e.target.value)}
+                    type="text"
+                    name="search"
+                    id="search"
+                  />
                   <button type="submit" className="mt-2">
-                    <i className="bx bx-search text-center mt-1"></i>
+                    <BiSearch />
                   </button>
                 </div>
               </div>
@@ -72,10 +88,11 @@ function Landing() {
                     className="col-md-12 p-2 font-nunito "
                     name="past_events"
                     id="past_events"
+                    onChange={(e) => onChangePastEvents(e.target.value)}
                   >
                     <option defaultValue={undefined}>Default</option>
-                    <option value={0}>True</option>
-                    <option value={1}>False</option>
+                    <option value={"true"}>True</option>
+                    <option value={"false"}>False</option>
                   </select>
                 </div>
               </div>
@@ -84,6 +101,24 @@ function Landing() {
         </div>
         <div className="mt-5">
           <KonfhubEvents />
+        </div>
+        <div
+          className="my-3 row
+        "
+        >
+          <div className="border col-md-4 m-auto"></div>
+          <div className="col-md-3 m-auto text-center">
+            <button
+              onClick={() => {
+                extendedLimit += defaultLimit;
+                dispatch(fetchEvents({ limit: extendedLimit }));
+              }}
+              className="btn btn-outline-secondary col-md-6 mx-auto"
+            >
+              Load More
+            </button>
+          </div>
+          <div className="border col-md-4 m-auto"></div>
         </div>
       </div>
     </div>

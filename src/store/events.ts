@@ -27,35 +27,30 @@ const eventsReducer = createSlice({
   },
 });
 
-export const fetchEvents = createAsyncThunk(
-  "events/fetchEvents",
-  async (
-    params:
-      | Partial<{
-          limit: number;
-          offset: number;
-          search_query: string;
-          past_event: boolean;
-        }>
-      | any,
-    thunkAPi
-  ) => {
-    try {
-      Object.keys(params).forEach((key) =>
-        params[key] === undefined || params[key] === null || params[key] === ""
-          ? delete params[key]
-          : {}
-      );
-      const response = await axios.get<KonfEvents>(
-        `https://iitm1blt3l.execute-api.ap-southeast-1.amazonaws.com/dev/hosted-events`,
-        { params }
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return thunkAPi.rejectWithValue("rejected");
-    }
+export const fetchEvents = createAsyncThunk<
+  KonfEvents,
+  Partial<{
+    limit: number;
+    offset: number;
+    search_query: string;
+    past_event: string;
+  }>
+>("events/fetchEvents", async (params: any, thunkAPi) => {
+  try {
+    Object.keys(params).forEach((key) =>
+      params[key] === undefined || params[key] === null || params[key] === ""
+        ? delete params[key]
+        : {}
+    );
+    const response = await axios.get<KonfEvents>(
+      `https://iitm1blt3l.execute-api.ap-southeast-1.amazonaws.com/dev/hosted-events`,
+      { params }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return thunkAPi.rejectWithValue("rejected");
   }
-);
+});
 
 export default eventsReducer.reducer;
