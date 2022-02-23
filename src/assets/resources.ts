@@ -6,4 +6,6 @@ export namespace Images {
   export const KONF_OCTO = require("./images/konf_octo.png");
 
   export const TOOLTIP = require("./images/tooltip.png");
+
+  export const PODIUM = require("./images/podium.png");
 }

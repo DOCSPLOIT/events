@@ -1,0 +1,8 @@
+.card {
+  height: 287.45px !important;
+}
+@media only screen and (max-width: 699px) {
+  .card {
+    height: 325px !important;
+  }
+}

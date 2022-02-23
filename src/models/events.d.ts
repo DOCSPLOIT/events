@@ -1,6 +1,7 @@
 export interface KonfEvents {
   count: number;
   events: Event[];
+  loading: string;
 }
 
 export interface Event {

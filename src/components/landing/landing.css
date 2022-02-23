@@ -10,7 +10,7 @@ div.search input[type="text"] {
   border: none;
   float: left;
   background-color: transparent;
-  width: 90%;
+  width: 85%;
 }
 
 div.search input[type="text"]:focus {
@@ -66,4 +66,12 @@ select {
 }
 option {
   color: black;
+}
+@media only screen and (max-width: 699px) {
+  .yellow-plate {
+    height: 930px !important;
+  }
+  div.search input[type="text"] {
+    width: 90%;
+  }
 }
