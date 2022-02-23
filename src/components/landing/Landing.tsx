@@ -51,7 +51,7 @@ function Landing() {
               className="col-md-8 mx-auto my-5 "
             />
           </div>
-          <div className="position-absolute p-3  col-md-6 col-sm-12 auto paper">
+          <div className="position-absolute p-3  col-md-10 col-lg-6 col-sm-12 auto paper">
             <div className="row">
               <div className="col-md-7 m-auto">
                 <label
@@ -74,7 +74,7 @@ function Landing() {
                   </button>
                 </div>
               </div>
-              <div className="col-md-5 m-auto">
+              <div className="col-md-5  m-auto">
                 <label
                   htmlFor="past_events"
                   className="font-nunito"
